@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run build script
-        run: /bin/bash build.sh
+        run: echo "2" | /bin/bash build.sh
       - name: Upload result
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: muguet-build
-          path: |
-            /tmp/muguet
+          path: /tmp/muguet
